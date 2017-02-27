@@ -30,9 +30,9 @@ Explain the custom Jekyll Serve Task
 
 Explain the watch method
 
-The **watch** task uses the gulp `watch` method to identifychanges made to files. It takes two arguments. The first is a string or an array of files to watch. The second argument is an array of tasks to perform. Put simply, when changes are saved in the file(s) of the first param the task(s) from the second param are fired off.
+The **watch** task uses the gulp `watch` method to identify changes made to files. It takes two arguments. The first is a string or an array of files to watch. The second argument is an array of tasks to perform. Put simply, when changes are saved in the file(s) of the first param the task(s) from the second param are fired off.
 
-  - One note of interest, notice the 'globbing patterns' used in this task. These filepaths denoted with multiple or single asterisks simplify the selection of files by way of choosing entire directories and/or files that end in a specific extension type.
+  - One note of interest, notice the 'globbing' patterns used in this task. These filepaths, denoted with multiple or single asterisks, simplify the selection of files by way of choosing entire directories and/or files that end in a specific extension type.
   
   `gulp.task('watch', function() {
     gulp.watch(['_sass/**/*.scss', 'trackerkeeper/styles/scss/**/*.scss'], ['compileTkSass', 'minifyTkSass', 'compileMainSass', 'minifyMainSass',]);
