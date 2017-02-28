@@ -37,9 +37,7 @@ The **watch** task uses the gulp `watch` method to identify changes made to file
 
   - One note of interest, notice the 'globbing' patterns used in this task. These filepaths, denoted with multiple or single asterisks, simplify the selection of files by way of choosing entire directories and/or files that end in a specific extension type.
   
-  `gulp.task('watch', function() {
-    gulp.watch(['_sass/**/*.scss', 'trackerkeeper/styles/scss/**/*.scss'], ['compileTkSass', 'minifyTkSass', 'compileMainSass', 'minifyMainSass',]);
-});`
+  `['_sass/**/*.scss', 'trackerkeeper/styles/scss/**/*.scss']`
 
 The **clean** task makes use of the `del` module. The `del` module takes a string or an array of files/file paths (notice the `glob` pattern again) to delete, or `clean`. This prevents files created from previous gulp tasks being duplicated.
 
