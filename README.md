@@ -1,6 +1,16 @@
 # gulp
 This is a simple repo for managing my gulpfile. This specific gulpfile is for a Jekyll site, which requires some non-standard workarounds. Also, just to raise the level of difficulty, an AngularJS app is nested inside the Jekyll site. Therefore, there are a couple of concat and uglification tasks instead of just one.
 
+##Initial Setup##
+
+Have `node.js` & `npm` installed on your machine.
+
+Run `npm install gulp -g` in Terminal.
+
+Run `npm init` to create a package.json file, which we'll use to track dependencies.
+
+Run `npm install gulp --save-dev` to install `gulp` as our first project dependency. Pay attention to the `--save-dev` flag. This adds dependencies to our `package.json` file. 
+
 ##Dependencies##
 
 **browser-sync** - testing site/app across multipled devices simultaneously and auto-refresh on css file changes.
