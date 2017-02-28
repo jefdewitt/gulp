@@ -21,14 +21,9 @@ This is a simple repo for managing my gulpfile. This specific gulpfile is for a 
      
 **del** - Removes files during tasks.
     
+##Tasks##
 
-Explain the ins-and-outs about the parts of the minifying task.
-
-Explain why minifying won't work with mapping css.
-    
-Explain the custom Jekyll Serve Task
-
-Explain the watch method
+The **clean** task makes use of the **del** module. The `del` module takes a string or an array of files/file paths (notice the `glob` pattern again) to delete, or `clean`. This prevents files created from previous gulp tasks being duplicated.
 
 The **watch** task uses the gulp `watch` method to identify changes made to files. It takes two arguments. The first is a string or an array of files to watch. The second argument is an array of tasks to perform. Put simply, when changes are saved in the file(s) of the first param the task(s) from the second param are fired off.
 
@@ -38,4 +33,13 @@ The **watch** task uses the gulp `watch` method to identify changes made to file
     gulp.watch(['_sass/**/*.scss', 'trackerkeeper/styles/scss/**/*.scss'], ['compileTkSass', 'minifyTkSass', 'compileMainSass', 'minifyMainSass',]);
 });`
 
-Explain the default task
+The `default` gulp task is what I'm using to tie it all together. It taks an array of other tasks as arguments to run. Just type `gulp` in the command line and wham-bam-thank-you-maam. 
+
+##Odds & Ends##
+
+**gulp-uglify** and **gulp-clean-css** depend on concatenated files returned from tasks using the **gulp-concat** module. Notice the use of the `return` values. This is because Gulp runs tasks concurrently but we need them to run in order so that we don't have our minified files being concatenated, rather the opposite. To ensure this, we use `concat` tasks as dependencies for our `minify` tasks meaning they will not run until they're given values from the `concat` tasks. And the concat tasks won't send ANYTHING to our `minify` tasks until they're finished running. The `return` ensures nothing is sent till they're done.
+
+Minifying will not work with **gulp-sourcemaps**. The solution I've found for this is simply pointing CSS/JS `link` tags toward unminified files while in development. When it comes time to go live I change the source back to the `.min` version.
+
+Since Jekyll comes with a development server baked-in, it was tricky to get gulp to initiate it. The solution is one I found online and don't entirely understand. The `childprocess` module uses a `spawn` method and seems to take an object with a `{stdio: 'inherit'}` key-value pair as a parameter. I'm tired and that's as far as I feel like getting into it right now. It's weird.
+
