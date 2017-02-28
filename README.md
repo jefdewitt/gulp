@@ -47,9 +47,9 @@ The `default` gulp task is what I'm using to tie it all together. It taks an arr
 
 ##Odds & Ends##
 
-**gulp-uglify** and **gulp-clean-css** depend on concatenated files returned from tasks using the **gulp-concat** module. Notice the use of the `return` values. This is because Gulp runs tasks concurrently but we need them to run in order so that we don't have our minified files being concatenated, rather the opposite. To ensure this, we use `concat` tasks as dependencies for our `minify` tasks meaning they will not run until they're given values from the `concat` tasks. And the concat tasks won't send ANYTHING to our `minify` tasks until they're finished running. The `return` ensures nothing is sent till they're done.
+My tasks that use **gulp-uglify** and **gulp-clean-css** depend on concatenated files. Gulp runs tasks concurrently by default so as a means to run tasks in order we use a two-step process. The first step is adding the `concat` tasks as dependencies of the `minification` tasks. The second step is adding `return` keywords to the `concat` tasks. This tells the tasks that have dependencies to wait until the those dependencies are finished before they themselves run. 
 
-Minifying will not work with **gulp-sourcemaps**. The solution I've found for this is simply pointing CSS/JS `link` tags toward unminified files while in development. When it comes time to go live I change the source back to the `.min` version.
+**gulp-sourcemaps** will not work with minified files. The solution I've found for this is simply pointing CSS/JS `link` tags toward unminified files while in development. When it comes time to go live I change the source back to the `.min` versions.
 
 Since Jekyll comes with a development server baked-in, it was tricky to get gulp to initiate it. The solution is one I found online and don't entirely understand. The `childprocess` module uses a `spawn` method and seems to take an object with a `{stdio: 'inherit'}` key-value pair as a parameter. I'm tired and that's as far as I feel like getting into it right now. It's weird.
 
