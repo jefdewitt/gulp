@@ -13,9 +13,9 @@ Run `npm install gulp --save-dev` to install `gulp` as our first project depende
 
 ##Dependencies##
 
-**browser-sync** - testing site/app across multipled devices simultaneously and auto-refresh on css file changes.
+**browser-sync** - testing site/app across multiple devices simultaneously and auto-refresh on css file changes.
   
-**childprocess** - Module to support Multiple Process Code Coverage with istanbul. I don't really know what that is but I use to serve up the Jekyll site in leu of the Terminal command `jekyll serve` that is commmonly used for local Jekyll development.
+**childprocess** - Module to support Multiple Process Code Coverage with istanbul. I don't really know what that is but I use to serve up the Jekyll site in lieu of the Terminal command `jekyll serve` that is commmonly used for local Jekyll development.
   
 **gulp-concat** - Concatenates multiple files together into a single source.
   
@@ -27,7 +27,7 @@ Run `npm install gulp --save-dev` to install `gulp` as our first project depende
   
 **gulp-sourcemaps** - Creates sourcemaps for identifying specific file locations for style rules and JavaScript.
      
-**gulp-clean-css** - Minfies CSS files.
+**gulp-clean-css** - Minifies CSS files.
      
 **del** - Removes files during tasks.
     
