@@ -33,8 +33,6 @@ Run `npm install gulp --save-dev` to install `gulp` as our first project depende
     
 ##Tasks##
 
-The **clean** task makes use of the **del** module. The `del` module takes a string or an array of files/file paths (notice the `glob` pattern again) to delete, or `clean`. This prevents files created from previous gulp tasks being duplicated.
-
 The **watch** task uses the gulp `watch` method to identify changes made to files. It takes two arguments. The first is a string or an array of files to watch. The second argument is an array of tasks to perform. Put simply, when changes are saved in the file(s) of the first param the task(s) from the second param are fired off.
 
   - One note of interest, notice the 'globbing' patterns used in this task. These filepaths, denoted with multiple or single asterisks, simplify the selection of files by way of choosing entire directories and/or files that end in a specific extension type.
@@ -42,6 +40,8 @@ The **watch** task uses the gulp `watch` method to identify changes made to file
   `gulp.task('watch', function() {
     gulp.watch(['_sass/**/*.scss', 'trackerkeeper/styles/scss/**/*.scss'], ['compileTkSass', 'minifyTkSass', 'compileMainSass', 'minifyMainSass',]);
 });`
+
+The **clean** task makes use of the `del` module. The `del` module takes a string or an array of files/file paths (notice the `glob` pattern again) to delete, or `clean`. This prevents files created from previous gulp tasks being duplicated.
 
 The `default` gulp task is what I'm using to tie it all together. It taks an array of other tasks as arguments to run. Just type `gulp` in the command line and wham-bam-thank-you-maam. 
 
