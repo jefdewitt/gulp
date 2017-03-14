@@ -1,5 +1,5 @@
 # gulp
-This is a simple repo for managing my gulpfile. This specific gulpfile is for a Jekyll site, which requires some non-standard workarounds. Also, just to raise the level of difficulty, an AngularJS app is nested inside the Jekyll site. Therefore, there are a couple of concat and uglification tasks instead of just one.
+This is a simple repo for managing my gulpfile. This specific gulpfile is for a Jekyll site, which requires some unconventional methods. Also, just to raise the level of difficulty, an AngularJS app is nested inside the Jekyll site. Therefore, there are a couple of concat and uglification tasks instead of just one.
 
 ## Initial Setup
 
