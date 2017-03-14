@@ -1,7 +1,7 @@
 # gulp
 This is a simple repo for managing my gulpfile. This specific gulpfile is for a Jekyll site, which requires some non-standard workarounds. Also, just to raise the level of difficulty, an AngularJS app is nested inside the Jekyll site. Therefore, there are a couple of concat and uglification tasks instead of just one.
 
-##Initial Setup##
+## Initial Setup
 
 Have `node.js` & `npm` installed on your machine.
 
@@ -11,7 +11,7 @@ Run `npm init` to create a package.json file, which we'll use to track dependenc
 
 Run `npm install gulp --save-dev` to install `gulp` as our first project dependency. Pay attention to the `--save-dev` flag. This adds dependencies to our `package.json` file. 
 
-##Dependencies##
+## Dependencies
 
 **browser-sync** - testing site/app across multiple devices simultaneously and auto-refresh on css file changes.
   
@@ -31,7 +31,7 @@ Run `npm install gulp --save-dev` to install `gulp` as our first project depende
      
 **del** - Removes files during tasks.
     
-##Tasks##
+## Tasks
 
 The **watch** task uses the gulp `watch` method to identify changes made to files. It takes two arguments. The first is a string or an array of files to watch. The second argument is an array of tasks to perform. Put simply, when changes are saved in the file(s) of the first param the task(s) from the second param are fired off.
 
@@ -43,7 +43,7 @@ The **clean** task makes use of the `del` module. The `del` module takes a strin
 
 The `default` gulp task is what I'm using to tie it all together. It taks an array of other tasks as arguments to run. Just type `gulp` in the command line and wham-bam-thank-you-maam. 
 
-##Odds & Ends##
+## Odds & Ends
 
 My tasks that use **gulp-uglify** and **gulp-clean-css** depend on concatenated files. Gulp runs tasks concurrently by default so as a means to run tasks in order we use a two-step process. The first step is adding the `concat` tasks as dependencies of the `minification` tasks. The second step is adding `return` keywords to the `concat` tasks. This tells the tasks that have dependencies to wait until the those dependencies are finished before they themselves run. 
 
